@@ -1,38 +1,1279 @@
-.App {
-  text-align: center;
+body,
+html {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Navbar setup */
+.navbar {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: transparent;
+  z-index: 1000;
+}
+
+.navbar.scrolled {
+  background-color: #355592; /* Change background color when scrolled */
+}
+
+/* Hero section background setup */
+.navigating {
+  background-image: url("./pictures/hero-man.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Logo styling */
+.logo {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+.logo img {
+  margin-right: 20rem;
+}
+
+/* Navbar links setup */
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-right: 2rem;
+}
+.links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.7rem;
+  font-weight: 900;
+  padding: 20px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* Join button styling */
+.join {
+  background-color: #eea53e;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  flex-grow: 0;
+}
+
+/* Heading section */
+.heading {
+  padding: 0 5rem;
+  padding-top: 15rem;
+}
+
+/* Emphasized text styling */
+.powerfull {
+  background-color: #355592;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  display: inline-block;
+}
+
+/* Hamburger menu setup for mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.navbar.active .hamburger div:nth-child(1) {
+  transform: rotate(45deg) translateY(10px); /* Transform the first line */
+}
+
+.navbar.active .hamburger div:nth-child(2) {
+  opacity: 0; /* Hide the middle line */
+}
+
+.navbar.active .hamburger div:nth-child(3) {
+  transform: rotate(-45deg) translateY(-10px); /* Transform the last line */
+}
+
+/* Heading text styling */
+.h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Paragraph styling for the hero section */
+.paragraph-hero {
+  background-color: black !important;
+  margin: 2rem !important;
+  padding: 2rem;
+  color: white;
+  opacity: 75%;
+}
+
+/* Sign-up button styling */
+.sign-up {
+  background-color: #355592;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 2.4rem;
+  text-align: center;
+  display: inline-block;
+}
+
+/* Details button styling */
+.details {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px 20px;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-size: 2.4rem;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 5rem;
+  margin-left: 5rem;
+}
+
+/* Information section setup */
+.information {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f1f8ff;
+}
+
+.information p {
+  background-color: white;
+  color: #333;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  font-size: 2rem;
+  text-align: center;
+  flex: 1 0 20%;
+  margin: 10px;
+}
+
+/* Highlighted text style */
+.color-info {
+  color: #355592;
+  font-weight: bold;
+}
+
+/* Section title styling */
+.middle {
+  font-family: "Montserrat", sans-serif;
+  color: #355592;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+/* Orange border underlining section title */
+.orange-border {
+  background-color: orange;
+  width: 20rem;
+  height: 1rem;
+  border-radius: 50px;
+  margin: 0 auto 1rem;
+}
+
+/* Button container styling */
+.btn-container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Button styling */
+.btn {
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.75rem 3.5rem;
+  border: none;
+  background-color: #355592;
+  color: white;
+  border-radius: 10rem;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+
+.btn.active {
+  background-color: #eea53e;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Section image styling */
+.pic {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin-left: 3rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Section container setup */
+.section-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Paragraph styling for sections */
+.section-paragraph {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  width: auto;
+  max-width: 40%;
+  min-width: 300px;
+  margin-left: 5rem;
+}
+
+/* BMI calculator section setup */
+.bmi-index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 20rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.bmi-container {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin-left: 10rem;
+}
+
+/* Input and button styling for BMI calculator */
+.bmi-index p,
+.bmi-index h2,
+.bmi-index input,
+.bmi-index button {
+  width: 100%;
+  min-width: none;
+  margin-left: 10rem;
+}
+
+.bmi-index input {
+  margin-bottom: 1rem;
+  border: black solid 0.2rem;
+  border-radius: 12px;
+  padding: 0.5rem;
+}
+
+/* BMI calculate button styling */
+.bmi-btn {
+  background-color: #355592;
+  color: white;
+  padding: 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.bmi-btn:hover {
+  background-color: orange;
+  color: white;
+  padding: 1rem;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* BMI result text styling */
+.bmi-result {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 1rem;
+}
+
+/* BMI visual representation setup */
+.bmi-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin-top: 2rem;
+}
+
+/* Arrow pointing to BMI result */
+.bmi-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid red;
+  bottom: -20px;
+  left: 0;
+  transition: left 0.3s ease-in-out;
+}
+
+/* Image for BMI visual representation */
+.bmi-pic {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+/* Sections for different exercise types */
+.yogaSection,
+.groupSection,
+.soloSection,
+.stretchingSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  text-align: center;
+}
+
+/* Paragraph styling for each exercise type */
+.yoga-paragraph,
+.group-paragraph,
+.solo-paragraph,
+.stretching-paragraph {
+  width: auto;
+  max-width: 40%;
+  min-width: 300px;
+  margin-left: 13rem;
+  font-size: 1.2rem;
+}
+.hidden {
+  display: none;
+}
+
+/* Trainers section setup */
+.trainers {
+  background-color: #f1f8ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Trainer images and containers setup */
+.trainer-images {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+/*Değerlendirme formu 2*/
+.trainer-images .trainer-container {
+  position: relative;
+  margin: 40px;
+  border: 5px solid orange;
+  margin-bottom: 15rem;
+  margin-top: 5rem;
+}
+
+.trainer-images img {
+  width: 25rem;
+  height: auto;
+}
+
+.trainer-images .blue-block {
+  position: absolute;
+  background-color: #355592;
+}
+
+/* Top blue block on trainer image */
+.trainer-images .blue-block.top {
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 10px;
+}
+
+/* Bottom blue block on trainer image */
+.trainer-images .blue-block.bottom {
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 10px;
+}
+
+/* Left blue block on trainer image */
+.trainer-images .blue-block.left {
+  top: 50%;
+  left: -15px;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 150px;
+  transition: left 0.3s ease, height 0.3s ease;
+}
+
+/* Right blue block on trainer image */
+.trainer-images .blue-block.right {
+  top: 50%;
+  right: -14px;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 150px;
+  transition: left 0.3s ease, height 0.3s ease;
+}
+
+/* Trainer info box setup */
+.trainer-info {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 100px);
+  background-color: #355592;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  opacity: 0;
+  transition: opacity 0.5s ease, bottom 0.5s ease;
+  border-radius: 0px;
+}
+
+.trainer-container:hover .trainer-info {
+  opacity: 1; /* Show trainer info on hover */
+}
+
+/* Vertical bars on trainer info box */
+.trainer-info::before,
+.trainer-info::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 50%;
+  background-color: #355592;
+  top: 25%;
+}
+
+.trainer-info::before,
+.trainer-info::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 60%;
+  background-color: #355592;
+  top: 25%;
+}
+.trainer-info::before {
+  left: -40px;
+}
+
+.trainer-info::after {
+  right: -40px;
+}
+.trainer-container:hover .blue-block.left {
+  top: 50%;
+  height: 200px;
+}
+
+.trainer-container:hover .blue-block.right {
+  height: 200px;
+}
+
+/* Product card styling */
+.product-card p {
+  margin: 0;
+  text-align: center;
+}
+.product-card button {
+  margin-top: 10px;
+}
+
+/* Purchasing section setup */
+.purchasing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Product images in purchasing section */
+.purchase-img {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10rem;
+  margin-top: 2rem;
+}
+.purchase-img img {
+  width: 20rem;
+  height: auto;
+  margin: 0.5rem;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+/* Product card image styling */
+.product-card img {
+  width: 20rem;
+  height: auto;
+  margin: 0.5rem;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* Button styling for product cards */
+.product-card button {
+  background-color: #355592;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.product-card button:hover {
+  background-color: #eea53e;
+}
+
+/* White background container styling */
+.white-background {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2rem 2rem rgba(0.2, 0.2, 0.2, 0.2);
+  margin: 1rem;
+  text-align: center;
+}
+
+/* Review section setup */
+.review {
+  background-color: #f1f8ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Testimonials container setup */
+.testimonials-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  max-width: 1200px;
+  width: 100%;
+  margin-bottom: 10rem;
+  margin-top: 5rem;
+  margin-left: 15rem;
+}
+
+/* Testimonial box setup */
+.testimonial {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #f1f8ff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 45%;
+  margin: 20px;
+  flex: 1;
+}
+
+/* Client info inside testimonial */
+.client-info {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  z-index: 10;
+  padding: 10px;
+  border-radius: 10px;
+  position: absolute;
+  top: -30px;
+  left: 20px;
+}
+
+.client-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+  marign-left: 5rem;
+}
+
+.client-info h5 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.client-info .position {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Testimonial text box styling */
+.testimonial-text {
+  background-color: #355592;
+  padding: 15px 20px;
+  color: white;
+  max-width: 300px;
+  z-index: 1;
+  position: relative;
+  margin-top: 50px;
+}
+
+.testimonial-text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Arrow pointing to testimonial text */
+.testimonial-text::before {
+  position: absolute;
+  bottom: 0px;
+  left: 10%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid #355592;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+}
+
+/* Triangular highlights in testimonial section */
+.triangle-left {
+  position: absolute;
+  bottom: -25px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+
+  border-top: 50px solid lightblue;
+}
+
+.triangle-right {
+  position: absolute;
+  bottom: -25px;
+  right: 198px;
+  width: 0;
+  height: 0;
+
+  border-top: 50px solid lightblue;
+  border-right: 50px solid transparent;
+}
+
+/* Contact section setup */
+.contact-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #f8f8f8;
+}
+
+/* Contact section paragraph styling */
+.contact-section p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+/* Contact info container setup */
+.contact-info {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  gap: 200px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* Contact details setup */
+.contact-details {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+}
+
+/* Contact form styling */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-form h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Form setup inside contact form */
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Label and input/textarea styling */
+.contact-form label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 300px;
+  background-color: #f1f8ff;
+  color: #333;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+/* Contact form button styling */
+.contact-form button {
+  padding: 10px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #355592;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  align-self: center;
+}
+
+.contact-form button:hover {
+  background-color: #2c3e50;
+}
+
+/* Map container setup */
+.map-container iframe {
+  width: 100%;
+  border: 0;
+  border-radius: 4px;
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+  width: 400px;
+  height: 450px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Button active state styling */
+.btn.active {
+  background-color: #eea53e;
+  color: white;
+}
+
+/* Footer setup */
+.footer {
+  background-color: #1e3a6d;
+  color: #d1d5db;
+  padding: 20px 0;
+}
+
+/* Footer content setup */
+.footer .footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer img {
+  width: 300px;
+  margin-bottom: 20px;
+  margin-right: 55rem;
+}
+
+/* Footer paragraph styling */
+.footer p {
+  max-width: 75rem;
+  margin: 0 auto 20px;
+  line-height: 1.5;
+}
+
+/* Footer links setup */
+.footer .footer-links {
+  display: flex;
+  justify-content: space-around;
+  gap: 10rem;
+}
+
+/* Footer link groups setup */
+.footer .footer-links .informations,
+.footer .footer-links .helpful-links {
+  flex: 1;
+  margin-right: 1rem;
+}
+.footer-links .helpful-links {
+  margin-right: 0;
+}
+
+/* Footer link heading and list styling */
+.footer .footer-links h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+}
+
+.footer .footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer .footer-links ul li {
+  margin-bottom: 5px;
+}
+
+.footer .footer-links ul li a {
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.footer .footer-links ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Additional paragraph styling */
+.paragraph-info {
+  text-align: center !important;
+  font-size: 20px;
+}
+
+/* Strikethrough text styling */
+.line-through {
+  text-decoration: line-through;
+}
+
+/* Responsive styles for mobile */
+/*Değerlendirme formu 2*/
+@media (max-width: 576px) {
+  body,
+  html {
+    overflow-x: hidden;
   }
-  to {
-    transform: rotate(360deg);
+  /*Değerlendirme formu 5*/
+  .navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #355592;
+    transition: background-color 0.3s ease;
+  }
+  .navbar.scrolled {
+    background-color: #355592;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #355592;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 998;
+  }
+
+  .navbar.active {
+    background-color: #355592;
+  }
+  .navbar.active .links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background-color: #355592;
+    width: 100%;
+    padding: 0;
+    z-index: 998;
+  }
+
+  .hamburger {
+    display: flex;
+    z-index: 1001;
+    position: absolute;
+    right: 4rem;
+    top: 3rem;
+  }
+
+  .hamburger div {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .heading {
+    padding: 2rem 1rem;
+    padding-top: 8rem;
+  }
+  .navbar.active .hamburger div:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+  }
+
+  .navbar.active .hamburger div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar.active .hamburger div:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
+  }
+
+  .join {
+    background-color: #eea53e;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1.5rem 0;
+    border-radius: 0;
+    border: none;
+    width: 100%;
+  }
+
+  .powerfull {
+    font-family: "Montserrat", sans-serif;
+    background-color: #355592;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-top: 1rem;
+  }
+
+  .sign-up,
+  .details {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .h1 {
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .navbar .links a {
+    padding: 1.5rem 0;
+    color: white;
+    text-align: center;
+    display: inline;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .paragraph-hero {
+    font-size: 1rem;
+    margin: 1rem 1rem;
+    padding: 1rem;
+  }
+
+  .information {
+    flex-direction: column;
+    padding: 1rem;
+    padding-top: 5rem;
+  }
+
+  .information p {
+    width: 90%;
+    margin: 5px auto;
+  }
+
+  .btn-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin: 0.5rem;
+  }
+
+  .btn {
+    width: 100%;
+    margin: 0;
+  }
+
+  .section-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+
+  .pic {
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    margin: 0.5rem auto;
+  }
+
+  .section-paragraph {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2rem;
+    width: 100%;
+    max-width: 100%;
+    margin-right: 6rem;
+  }
+
+  .bmi-index {
+    flex-direction: column;
+    text-align: center;
+    margin-right: 16rem;
+  }
+
+  .bmi-container {
+    width: 80%;
+    margin: 0 auto;
+    margin-right: 5rem;
+  }
+
+  .bmi-pic {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .bmi-visual {
+    width: 80%;
+    margin: 0.5rem auto;
+  }
+
+  .trainer-images {
+    flex-direction: column;
+  }
+
+  .purchase-img {
+    flex-direction: column;
+  }
+
+  .product-card {
+    margin: 10px auto;
+  }
+
+  .client-info {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    z-index: 10;
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: -30px;
+    left: 20px;
+  }
+  .client-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    marign-left: 2rem;
+    margin-top: 2rem;
+  }
+
+  .map-container {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .footer {
+    text-align: center;
+  }
+
+  .footer img {
+    margin-right: 0;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .testimonials-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .testimonial {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 0;
+    position: relative;
+  }
+
+  .testimonial .client-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-left: 0;
+  }
+
+  .testimonial .client-info img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 1rem;
+  }
+
+  .testimonial .testimonial-text {
+    background-color: #355592;
+    color: white;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    border-radius: 5px;
+    text-align: left;
+    position: relative;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .client-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    marign-left: 2rem;
+    margin-top: 2rem;
+  }
+
+  .client-info h5 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 2rem;
+  }
+
+  .client-info .position {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+  }
+
+  .testimonial-text {
+    background-color: #355592;
+    padding: 25px 500px;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+    position: relative;
+    margin-top: 50px;
+  }
+
+  .testimonial-text p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .testimonial-text::before {
+    position: absolute;
+    bottom: 0px;
+    left: 15px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-top: 10px solid #355592;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+  }
+
+  .triangle-left {
+    position: absolute;
+    bottom: -27px;
+    left: 14px;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+
+    border-top: 50px solid lightblue;
+  }
+
+  .triangle-right {
+    position: absolute;
+    bottom: -25px;
+    left: 230px;
+    width: 0;
+    height: 0;
+
+    border-top: 50px solid lightblue;
+    border-right: 50px solid transparent;
   }
 }
